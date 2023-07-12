@@ -14,14 +14,17 @@ main {
 .card {
   width: 400px;
   height: 400px;
-  background: rgb(236, 236, 236);
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  background: rgba(255, 255, 255, 0.37);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(18.5px);
+  -webkit-backdrop-filter: blur(18.5px);
 }
 
 .hora {
-  font-style: italic;
   font-family: Verdana, Tahoma, sans-serif;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
   padding: 3rem 0 0 0;
 }
 
