@@ -1,81 +1,26 @@
-//Declaración de variables
-const precioHora = 400;
-let mensaje =
-  "Bienvenido.\n \nIngrese '1' para consultar tu deuda. \nIngrese '2'para realizar su pago.  \nIngrese '3' para salir.";
+//Se obtienen los elementos del DOM
+let boton = document.getElementById("boton");
+let botones = document.getElementById("botones");
 
-//Arrow Function para crear valores aleatorios para el pago del servicio
-const valorAleatorio = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
+boton.addEventListener("click", function (e) {
+  e.preventDefault();
 
-//Se pide al usuario ingresar el dato
-let vehiculo = prompt("Ingresa el tipo de vehículo:");
-let vehiculoLowerCase = vehiculo.toLowerCase();
+  //Muestra el resultado de la función
+  mostrarNumeroAleatorio();
+});
 
-//Se define el objeto vacío donde se guardarán los datos
-const cliente = {};
+//Función para crear un valor aleatorio
+function mostrarNumeroAleatorio() {
+  let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
 
-//Ciclo 'for' para generar un ID aleatorio
-for (let numero = 1; numero <= 1; numero++) {
-  let numeroAsignado = Math.floor(Math.random() * 40) + 1;
-  alert(
-    "Tu ID asignado es: #" +
-      numeroAsignado +
-      "\n \nPresione 'Aceptar' para continuar"
-  );
-  cliente.identificador = numeroAsignado;
+  //Se muestra el resultado a través del HTML
+  let resultado = document.getElementById("resultado");
+  resultado.innerHTML = "<h4>Tu número es: #" + numeroAleatorio;
+
+  //Se continúa con los demás elementos de HTML
+  let boton = document.getElementById("boton");
+  boton.addEventListener("click", function () {
+    botones.style.display = "block";
+    boton.style.display = "none";
+  });
 }
-cliente.vehiculo = vehiculoLowerCase;
-cliente.fechaIngreso = new Date();
-
-//Se muestra a través de consola los datos que ahora tiene el objeto
-console.log(cliente);
-
-//Se muestra el mensaje guardado para comenzar con la otra parte del programa
-let inicio = prompt(mensaje);
-
-//Variables de scope global para generar el resultado
-let hora = valorAleatorio(1, 6);
-let minutos = valorAleatorio(1, 60);
-let precio = (minutos / 60) * precioHora + hora * precioHora;
-let precioTotal = precio.toFixed(2);
-
-//Comienzo del bucle 'while'
-while (inicio !== "3") {
-  if (inicio === "1") {
-    alert("Tu deuda total es: " + precioTotal + "$");
-    //Se inicializa un arreglo vacío donde luego se guardarán algunos datos
-    const arregloDatos = [];
-
-    const fecha = new Date();
-    const cantidadPagada = precioTotal;
-    const identificador = cliente.identificador;
-    const tipoVehiculo = cliente.vehiculo;
-    arregloDatos.push(fecha, cantidadPagada, identificador, tipoVehiculo);
-
-    //Se muestra a través de consola los datos que ahora tiene el arreglo
-    console.log(arregloDatos);
-
-    //Se hace uso del metodo 'includes' para saber si existe el elemento dentro del arreglo
-    let encontrarElemento = arregloDatos.includes("moto");
-    console.log(encontrarElemento);
-
-    //Condicional relacionado con el resultado del metodo anterior
-    if (encontrarElemento) {
-      console.log("¡Recuerda usar casco siempre!");
-    } else {
-      console.log("¡Vuelva pronto!");
-    }
-  } else if (inicio === "2") {
-    alert(
-      "Se ha pagado correctamente el monto de: " +
-        precioTotal +
-        "$" +
-        "\n\n¡Gracias por preferirnos, vuelva pronto!"
-    );
-  } else {
-    alert("Por favor ingrese una opción válida.");
-  }
-
-  inicio = prompt(mensaje);
-}
-alert("Hasta luego.");

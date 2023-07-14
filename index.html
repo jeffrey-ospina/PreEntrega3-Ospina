@@ -28,16 +28,20 @@
         <div class="pt-4 mb-5">
           <h1 class="mb-5 titulo">Parking Lot</h1>
           <!-- Tarjeta -->
-          <div class="card justify-content-evenly align-items-center">
-            <h5 class="pt-4 hora">
-              Bienvenido. Presiona siguiente para obtener tu ID
-            </h5>
+          <div
+            id="mensaje"
+            class="card justify-content-evenly align-items-center"
+          >
+            <h4 id="resultado">
+              Bienvenido. Presiona siguiente para obtener su ID
+            </h4>
+            <button id="boton" class="fw-bold">Siguiente</button>
             <!-- Input -->
-            <div class="textInputWrapper">
+            <!-- <div class="textInputWrapper">
               <input type="text" class="textInput" />
-            </div>
+            </div> -->
             <!-- Botones -->
-            <div class="color">
+            <div id="botones" class="color" style="display: none">
               <button style="font-weight: bold">Consultar</button>
               <button style="font-weight: bold">Pagar</button>
             </div>
